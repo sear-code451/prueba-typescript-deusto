@@ -1,0 +1,11 @@
+# Folders
+/ejercicio1
+/ejercicio2
+/ejercicio3
+/example
+node_modules
+
+# Files
+example-main.ts
+formulario-sencillo.ts
+interfaz.ts

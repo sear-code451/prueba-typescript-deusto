@@ -149,7 +149,7 @@ var getDepartmentEmpleado = function () {
     var input_employee = document.getElementById('tag-employee').value;
     var inputTextarea = document.getElementById('result');
     var registro = new Registro_empleado();
-    if (input_department === "ventas" || "compras") {
+    if (input_department === ("ventas") || (input_department === "compras")) {
         if (input_department === "ventas") {
             if (registro.empleadoVentas(input_employee) !== undefined) {
                 var empleado_compras_1 = registro.empleadoVentas(input_employee);
@@ -159,6 +159,7 @@ var getDepartmentEmpleado = function () {
             else
                 inputTextarea.value = "Este nombre no existe en el departamento de ventas.";
         }
+        ;
         if (input_department === "compras") {
             if (registro.empleadoCompras(input_employee) !== undefined) {
                 var empleado_ventas_1 = registro.empleadoCompras(input_employee);
@@ -168,6 +169,7 @@ var getDepartmentEmpleado = function () {
             else
                 inputTextarea.value = "Este nombre no existe en el departamento de compras";
         }
+        ;
     }
     else
         inputTextarea.value = "Este departamento no existe";
@@ -175,11 +177,9 @@ var getDepartmentEmpleado = function () {
 // ? Invovación del click del elemento id:"action_button"
 var boton = document.getElementById("action_button");
 boton === null || boton === void 0 ? void 0 : boton.addEventListener('click', getDepartmentEmpleado);
-
-
-
-// INVOQUE
+// INVOQUE pruebas
 var register = new Registro_empleado();
+register.empleadoVentas('juan');
 console.log(register.empleadoVentas('maria'));
 console.log(register.listaEmpleadosVentas());
 console.log(register.empleadoCompras('marcelo'));

@@ -168,14 +168,13 @@ class Registro_empleado extends Empleado_compras {
 // ? Si existe los empleados según el departamanto todo esto se enviará por la etiqueta "textarea"
 
 const getDepartmentEmpleado = () => {
-    let input_department = (<HTMLInputElement>document.getElementById('tag-department')).value;
-    let input_employee = (<HTMLInputElement>document.getElementById('tag-employee')).value;
+    let input_department:string = (<HTMLInputElement>document.getElementById('tag-department')).value;
+    let input_employee:string = (<HTMLInputElement>document.getElementById('tag-employee')).value;
     let inputTextarea = (<HTMLTextAreaElement>document.getElementById('result'));
 
     let registro = new Registro_empleado();
 
-    if( input_department === "ventas" || "compras" ) {
-
+    if( input_department === ("ventas") || (input_department === "compras") ) {
         if( input_department === "ventas" ){
             if( registro.empleadoVentas( input_employee ) !== undefined ){
                 let empleado_compras = registro.empleadoVentas( input_employee );
@@ -186,7 +185,7 @@ const getDepartmentEmpleado = () => {
                 fecha de nacimiento: ${ __birthdate }
                 ventas: ${__sales}`;
             }else inputTextarea.value = "Este nombre no existe en el departamento de ventas.";
-        }
+        };
 
         if( input_department === "compras" ) {
             if( registro.empleadoCompras( input_employee ) !== undefined ) {
@@ -199,9 +198,9 @@ const getDepartmentEmpleado = () => {
                 compras: ${ __shopping }
                 `;
             }else inputTextarea.value = "Este nombre no existe en el departamento de compras";
-        }
+        };
     }else inputTextarea.value = "Este departamento no existe";
-
+    
 }
 
 // ? Invovación del click del elemento id:"action_button"
@@ -210,12 +209,9 @@ boton?.addEventListener( 'click', getDepartmentEmpleado );
 
 
 
-
-
-
-
 // INVOQUE pruebas
 let register = new Registro_empleado();
+register.empleadoVentas('juan')
 console.log(register.empleadoVentas('maria'));
 console.log(register.listaEmpleadosVentas());
 
